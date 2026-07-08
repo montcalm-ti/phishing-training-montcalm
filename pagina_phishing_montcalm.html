@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alerta de Simulacao de Phishing - Montcalm</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    background: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .card {
+    background: #ffffff;
+    max-width: 640px;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    overflow: hidden;
+  }
+  .header {
+    background: #ffffff;
+    padding: 32px 40px 20px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+  }
+  .header img {
+    max-width: 220px;
+    height: auto;
+  }
+  .alert-bar {
+    background: #e65c2e;
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 20px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.3px;
+  }
+  .content {
+    padding: 32px 40px 40px;
+  }
+  .content h1 {
+    font-size: 22px;
+    color: #4a4a4a;
+    margin-bottom: 16px;
+  }
+  .content p {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 16px;
+  }
+  .tips {
+    background: #fafafa;
+    border-left: 4px solid #e65c2e;
+    padding: 18px 22px;
+    border-radius: 6px;
+    margin: 24px 0;
+  }
+  .tips h2 {
+    font-size: 16px;
+    color: #4a4a4a;
+    margin-bottom: 10px;
+  }
+  .tips ul {
+    padding-left: 20px;
+    color: #555;
+    font-size: 14.5px;
+  }
+  .tips li {
+    margin-bottom: 8px;
+  }
+  .footer {
+    text-align: center;
+    font-size: 12.5px;
+    color: #999;
+    padding: 20px 40px 30px;
+  }
+  strong { color: #4a4a4a; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <img src="data:image/png;base64,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" alt="Montcalm Montagens Industriais">
+    </div>
+    <div class="alert-bar">
+      VOCE CLICOU EM UM LINK DE PHISHING SIMULADO
+    </div>
+    <div class="content">
+      <h1>Este foi um teste de conscientizacao em seguranca</h1>
+      <p>
+        Este e-mail fazia parte de uma <strong>simulacao de phishing</strong> conduzida pela Montcalm
+        para ajudar nossa equipe a reconhecer tentativas reais de golpe. Nenhuma informacao sua foi
+        coletada ou comprometida.
+      </p>
+      <div class="tips">
+        <h2>Como identificar um e-mail de phishing:</h2>
+        <ul>
+          <li>Verifique sempre o endereco de e-mail do remetente, nao apenas o nome exibido.</li>
+          <li>Desconfie de mensagens que criam urgencia ou ameacam consequencias imediatas.</li>
+          <li>Passe o mouse sobre os links antes de clicar para ver o destino real.</li>
+          <li>Nunca informe senhas, dados bancarios ou credenciais em formularios recebidos por e-mail.</li>
+          <li>Em caso de duvida, confirme com o remetente por outro canal (telefone, chat interno) antes de agir.</li>
+        </ul>
+      </div>
+      <p>
+        Se voce recebeu um e-mail parecido com este fora de um treinamento oficial, encaminhe-o
+        imediatamente para a equipe de TI/Seguranca da Montcalm e nao clique em nenhum link ou anexo.
+      </p>
+    </div>
+    <div class="footer">
+      Montcalm Montagens Industriais &middot; Treinamento de Conscientizacao em Seguranca
+    </div>
+  </div>
+</body>
+</html>
